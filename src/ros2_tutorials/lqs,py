@@ -1,0 +1,17 @@
+import sympy as sp 
+
+q1 = sp.symbols("q1")
+
+theta = q1
+d = 0
+a = 2
+alpha = 0
+
+A1 = sp.Matrix([
+ [sp.cos(theta), -sp.sin(theta)*sp.cos(alpha),  sp.sin(theta)*sp.sin(alpha), a*sp.cos(theta)],
+ [sp.sin(theta),  sp.cos(theta)*sp.cos(alpha), -sp.cos(theta)*sp.sin(alpha), a*sp.sin(theta)],
+ [0,              sp.sin(alpha),                sp.cos(alpha),               d],
+ [0,              0,                            0,                           1]
+])
+
+sp.pprint(sp.simplify(A1), use_unicode=True)

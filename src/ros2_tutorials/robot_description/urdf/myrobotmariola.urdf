@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<robot name="simple_glove">
+
+  <!-- PALMA -->
+  <link name="palm">
+    <visual>
+      <geometry>
+        <box size="0.3 0.25 0.05"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- PULGAR -->
+  <link name="thumb">
+    <visual>
+      <geometry>
+        <box size="0.15 0.05 0.05"/>
+      </geometry>
+      <origin xyz="0.075 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="thumb_joint" type="revolute">
+    <parent link="palm"/>
+    <child link="thumb"/>
+    <origin xyz="0.05 -0.15 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.0" upper="1.0" effort="1" velocity="1"/>
+  </joint>
+
+  <!-- INDICE -->
+  <link name="index_finger">
+    <visual>
+      <geometry>
+        <box size="0.18 0.04 0.04"/>
+      </geometry>
+      <origin xyz="0.09 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="index_joint" type="revolute">
+    <parent link="palm"/>
+    <child link="index_finger"/>
+    <origin xyz="0.15 -0.08 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="1"/>
+  </joint>
+
+  <!-- MEDIO -->
+  <link name="middle_finger">
+    <visual>
+      <geometry>
+        <box size="0.2 0.04 0.04"/>
+      </geometry>
+      <origin xyz="0.1 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="middle_joint" type="revolute">
+    <parent link="palm"/>
+    <child link="middle_finger"/>
+    <origin xyz="0.15 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="1"/>
+  </joint>
+
+  <!-- ANULAR -->
+  <link name="ring_finger">
+    <visual>
+      <geometry>
+        <box size="0.18 0.04 0.04"/>
+      </geometry>
+      <origin xyz="0.09 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="ring_joint" type="revolute">
+    <parent link="palm"/>
+    <child link="ring_finger"/>
+    <origin xyz="0.15 0.08 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="1"/>
+  </joint>
+
+  <!-- MEÑIQUE -->
+  <link name="pinky">
+    <visual>
+      <geometry>
+        <box size="0.15 0.04 0.04"/>
+      </geometry>
+      <origin xyz="0.075 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="pinky_joint" type="revolute">
+    <parent link="palm"/>
+    <child link="pinky"/>
+    <origin xyz="0.15 0.15 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="1"/>
+  </joint>
+
+</robot>
